@@ -42,7 +42,7 @@ class ModelConfig(BaseModel):
     categorical_vars_with_na_missing: List[str]
     numerical_vars_with_na: List[str]
     temporal_vars: List[str]
-    ref_var: str
+    ref_var: int
     numericals_log_vars: Sequence[str]
     binarize_vars: Sequence[str]
     qual_vars: List[str]
