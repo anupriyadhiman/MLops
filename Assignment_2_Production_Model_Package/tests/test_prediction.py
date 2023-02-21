@@ -3,7 +3,7 @@ import math
 import numpy as np
 from sklearn.metrics import accuracy_score
 
-from regression_model.predict import make_prediction
+from classification_model.predict import make_prediction
 
 
 def test_make_prediction(sample_input_data):
