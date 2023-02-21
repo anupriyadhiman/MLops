@@ -24,11 +24,27 @@ env TOX_ENV_DIR: D:\AI_DS\Quarter_3\MLops\Practice\MLOps\Assignment_2_Production
 env VIRTUAL_ENV: D:\AI_DS\Quarter_3\MLops\Practice\MLOps\Assignment_2_Production_Model_Package\.tox\test_package
 env COLUMNS: 162
 env LINES: 29
-metadata pid: 19284
+metadata pid: 23580
 cwd: D:\AI_DS\Quarter_3\MLops\Practice\MLOps\Assignment_2_Production_Model_Package
 allow: D:\AI_DS\Quarter_3\MLops\Practice\MLOps\Assignment_2_Production_Model_Package\.tox\test_package\Scripts\*
-cmd: python regression_model/train_pipeline.py
-exit_code: 2
+cmd: python classification_model/train_pipeline.py
+exit_code: 1
 
 standard error:
-C:\Users\DELL\miniconda3\python.exe: can't open file 'D:\AI_DS\Quarter_3\MLops\Practice\MLOps\Assignment_2_Production_Model_Package\regression_model\train_pipeline.py': [Errno 2] No such file or directory
+Traceback (most recent call last):
+  File "D:\AI_DS\Quarter_3\MLops\Practice\MLOps\Assignment_2_Production_Model_Package\classification_model\train_pipeline.py", line 2, in <module>
+    from config.core import config
+  File "D:\AI_DS\Quarter_3\MLops\Practice\MLOps\Assignment_2_Production_Model_Package\classification_model\config\core.py", line 7, in <module>
+    import classification_model
+  File "D:\AI_DS\Quarter_3\MLops\Practice\MLOps\Assignment_2_Production_Model_Package\classification_model\__init__.py", line 3, in <module>
+    from classification_model.config.core import PACKAGE_ROOT, config
+  File "D:\AI_DS\Quarter_3\MLops\Practice\MLOps\Assignment_2_Production_Model_Package\classification_model\config\core.py", line 87, in <module>
+    config = create_and_validate_config()
+  File "D:\AI_DS\Quarter_3\MLops\Practice\MLOps\Assignment_2_Production_Model_Package\classification_model\config\core.py", line 80, in create_and_validate_config
+    app_config=AppConfig(**parsed_config.data),
+  File "pydantic\main.py", line 342, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 2 validation errors for AppConfig
+train_data_file
+  field required (type=value_error.missing)
+raw_data_file
+  field required (type=value_error.missing)
