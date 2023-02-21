@@ -1,0 +1,95 @@
+# Package Overview
+package_name: classification_model
+
+# Data Files
+training_data_file: train.csv
+test_data_file: test.csv
+
+# Variables
+# The variable we are attempting to predict (sale price)
+target: survived
+
+pipeline_name: classification_model
+pipeline_save_file: classification_model_output_v
+
+# Will cause syntax errors since they begin with numbers
+# nested dictionary
+variables_to_rename:
+  1stFlrSF: FirstFlrSF
+  2ndFlrSF: SecondFlrSF
+  3SsnPorch: ThreeSsnPortch
+
+# Intendention matters in yml and here a key with intended dash is the list 
+features:
+- pclass
+- sex
+- age
+- sibsp
+- parch
+- fare
+- cabin
+- embarked
+- title
+
+
+
+# set train/test split
+test_size: 0.1
+
+# to set the random seed
+random_state: 0
+
+alpha: 0.001
+
+# variables not used
+
+drop_features:
+  - name
+  - ticket
+  - boat
+  - body
+  - home.dest
+
+
+# variables to log transform
+numericals_vars:
+  - age
+  - fare
+
+# variables to encode
+categoriacal_vars:
+  - sex
+  - embarked
+  - title
+  - cabin
+
+# variable mappings
+sex_mappings:
+  male: 0
+  female: 1
+ 
+
+cabin_mappings:
+  Missing: 0
+  Rare: 1
+  
+
+
+embarked_mappings:
+  S: 0
+  Q: 1
+  C: 2
+  Rare: 3
+  
+
+
+title_mappings:
+  Mr: 0
+  Rare: 1
+  Miss: 2
+  Mrs: 3
+  
+pclass_mappings:
+  3: 0
+  2: 1
+  1: 2
